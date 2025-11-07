@@ -25,11 +25,7 @@
   ],
   "files": [
     "lib",
-    "src",
-    "RETRY_CONFIGURATION.md",
-    "PUBLISHING.md",
-    "STANDALONE_BUILD.md",
-    "PACKAGE_READY.md"
+    "src"
   ],
   "main": "lib/index.js",
   "scripts": {
