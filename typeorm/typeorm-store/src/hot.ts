@@ -2,6 +2,7 @@ import {assertNotNull} from '@subsquid/util-internal'
 import type {EntityManager, EntityMetadata} from 'typeorm'
 import {ColumnMetadata} from 'typeorm/metadata/ColumnMetadata'
 import {Entity, EntityClass} from './store'
+import {RollbackHook} from './database'
 
 
 export interface RowRef {
@@ -165,7 +166,8 @@ export class ChangeTracker {
 export async function rollbackBlock(
     statusSchema: string,
     em: EntityManager,
-    blockHeight: number
+    blockHeight: number,
+    rollbackHook?: RollbackHook
 ): Promise<void> {
     let schema = escape(em, statusSchema)
 
@@ -206,6 +208,10 @@ export async function rollbackBlock(
     }
 
     await em.query(`DELETE FROM ${schema}.hot_block WHERE height = $1`, [blockHeight])
+
+    if (rollbackHook) {
+        await rollbackHook(blockHeight)
+    }
 }
 
 
