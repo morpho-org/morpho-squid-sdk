@@ -37,6 +37,27 @@ const database = new TypeormDatabase({
 })
 ```
 
+### 3. Composite Primary Keys in Upsert
+Specify custom conflict resolution columns for entities with composite primary keys:
+
+```typescript
+import { TypeormDatabase } from '@morpho-dev/subsquid-typeorm-store'
+
+// Single entity with composite key
+await store.upsert(entity, ['id', 'chainId'])
+
+// Multiple entities with composite key
+await store.upsert(entities, ['address', 'blockNumber'])
+
+// Default behavior (uses 'id' only)
+await store.upsert(entity) // equivalent to store.upsert(entity, ['id'])
+```
+
+This is particularly useful for:
+- Multi-chain entities where the same ID can exist on different chains
+- Time-series data indexed by address and block number
+- Any entity with a natural composite key
+
 ## Installation
 
 ```bash
