@@ -33,7 +33,9 @@ export interface RpcClientOptions {
      */
     requestTimeout?: number
     /**
-     * When set, every call (by default) will be retried specified number of times after connection error.
+     * When set, every call (by default) will be retried specified number of times after any error.
+     *
+     * Set to 0 to disable retries.
      */
     retryAttempts?: number
     /**
@@ -47,6 +49,45 @@ export interface RpcClientOptions {
      * Default is `[10, 100, 500, 2000, 10000, 20000]`
      */
     retrySchedule?: number[]
+    /**
+     * Use exponential backoff for retries.
+     *
+     * When enabled, retry delays will double on each attempt: 100ms, 200ms, 400ms, 800ms, etc.
+     * Limited by maxBackoff.
+     *
+     * Default is false (uses retrySchedule)
+     */
+    useExponentialBackoff?: boolean
+    /**
+     * Initial delay in ms for exponential backoff.
+     *
+     * Default is 100ms
+     */
+    exponentialBackoffInitialDelay?: number
+    /**
+     * Maximum backoff delay in ms.
+     *
+     * Prevents exponential backoff from growing indefinitely.
+     *
+     * Default is 60000 (60 seconds)
+     */
+    maxBackoff?: number
+    /**
+     * Add random jitter to retry delays to prevent thundering herd.
+     *
+     * When enabled, actual delay will be randomized between 50% and 100% of calculated delay.
+     *
+     * Default is true
+     */
+    retryJitter?: boolean
+    /**
+     * Retry all errors, not just connection errors.
+     *
+     * When enabled, will retry RpcError, RpcProtocolError, and all other errors.
+     *
+     * Default is false (only retries connection errors)
+     */
+    retryAllErrors?: boolean
     /**
      * Maximum number of requests in a single batch call
      */
@@ -112,6 +153,11 @@ export class RpcClient {
     private requestTimeout: number
     private retrySchedule: number[]
     private retryAttempts: number
+    private useExponentialBackoff: boolean
+    private exponentialBackoffInitialDelay: number
+    private maxBackoff: number
+    private retryJitter: boolean
+    private retryAllErrors: boolean
     private capacity: number
     private maxCapacity: number
     private log?: Logger
@@ -137,6 +183,11 @@ export class RpcClient {
         this.requestTimeout = options.requestTimeout ?? 0
         this.retryAttempts = options.retryAttempts ?? 0
         this.retrySchedule = options.retrySchedule ?? [10, 100, 500, 2000, 10000, 20000]
+        this.useExponentialBackoff = options.useExponentialBackoff ?? false
+        this.exponentialBackoffInitialDelay = options.exponentialBackoffInitialDelay ?? 100
+        this.maxBackoff = options.maxBackoff ?? 60000
+        this.retryJitter = options.retryJitter ?? true
+        this.retryAllErrors = options.retryAllErrors ?? false
 
         this.log = options.log === null
             ? undefined
@@ -396,7 +447,7 @@ export class RpcClient {
         promise.then(result => {
             const responseTimeSeconds = (Date.now() - startTime) / 1000
             this.totalResponseTime += responseTimeSeconds
-            
+
             this.requestsServed += 1
             if (this.backoffEpoch == backoffEpoch) {
                 this.connectionErrorsInRow = 0
@@ -404,7 +455,7 @@ export class RpcClient {
             req.resolve(result)
         }, err => {
             if (this.closed) return req.reject(err)
-            if (this.isConnectionError(err)) {
+            if (this.isRetriableError(err)) {
                 if (req.retryAttempts > 0) {
                     req.retryAttempts -= 1
                     this.enqueue(req)
@@ -451,9 +502,25 @@ export class RpcClient {
         this.connectionErrorsInRow += 1
         this.connectionErrors += 1
 
-        let backoffPause = this.retrySchedule[
-            Math.min(this.connectionErrorsInRow, this.retrySchedule.length) - 1
-        ]
+        let backoffPause: number
+
+        if (this.useExponentialBackoff) {
+            // Exponential backoff: initialDelay * 2^(attempt - 1)
+            const exponentialDelay = this.exponentialBackoffInitialDelay * Math.pow(2, this.connectionErrorsInRow - 1)
+            backoffPause = Math.min(exponentialDelay, this.maxBackoff)
+        } else {
+            // Legacy schedule-based backoff
+            backoffPause = this.retrySchedule[
+                Math.min(this.connectionErrorsInRow, this.retrySchedule.length) - 1
+            ]
+        }
+
+        // Apply jitter to prevent thundering herd
+        if (this.retryJitter) {
+            // Random value between 0.5 and 1.0
+            const jitterFactor = 0.5 + Math.random() * 0.5
+            backoffPause = Math.floor(backoffPause * jitterFactor)
+        }
 
         this.backoffTime = Date.now() + backoffPause
 
@@ -468,8 +535,9 @@ export class RpcClient {
             this.log.warn({
                 reason: reason.toString(),
                 httpResponseBody,
-                rpcCall: req?.call
-            }, 'connection failure')
+                rpcCall: req?.call,
+                retryAttempt: this.connectionErrorsInRow
+            }, 'error occurred, retrying')
             this.log.warn(`will pause new requests for ${backoffPause}ms`)
         }
     }
@@ -525,12 +593,25 @@ export class RpcClient {
                 case 502:
                 case 503:
                 case 504:
+                case 521:
+                case 522:
+                case 523:
+                case 524:
                     return true
                 default:
                     return false
             }
         }
         return false
+    }
+
+    isRetriableError(err: Error): boolean {
+        // If retryAllErrors is enabled, retry all errors
+        if (this.retryAllErrors) {
+            return true
+        }
+        // Otherwise, only retry connection errors
+        return this.isConnectionError(err)
     }
 
     reset(reason?: RpcConnectionError): void {
