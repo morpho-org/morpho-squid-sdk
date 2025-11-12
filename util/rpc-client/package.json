@@ -1,12 +1,25 @@
 {
-  "name": "@subsquid/rpc-client",
-  "version": "4.14.0",
-  "description": "Lightweight JSON-RPC client library",
+  "name": "@morpho-dev/subsquid-rpc-client",
+  "version": "4.15.0",
+  "description": "Lightweight JSON-RPC client library with enhanced exponential retry for all errors",
   "license": "GPL-3.0-or-later",
-  "repository": "git@github.com:subsquid/squid.git",
-  "publishConfig": {
-    "access": "public"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morpho-org/morpho-squid-sdk.git",
+    "directory": "util/rpc-client"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "rpc",
+    "json-rpc",
+    "ethereum",
+    "retry",
+    "exponential-backoff",
+    "morpho"
+  ],
   "files": [
     "lib",
     "src"
