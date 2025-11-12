@@ -35,10 +35,49 @@ export interface RpcEndpointSettings {
     requestTimeout?: number
     /**
      * Maximum number of retry attempts.
-     * 
-     * By default, retries all "retryable" errors indefinitely. 
+     *
+     * By default, retries all "retryable" errors indefinitely.
      */
     retryAttempts?: number
+    /**
+     * Use exponential backoff for retries.
+     *
+     * When enabled, retry delays will double on each attempt: 100ms, 200ms, 400ms, 800ms, etc.
+     * Limited by maxBackoff.
+     *
+     * Default is false (uses fixed retry schedule)
+     */
+    useExponentialBackoff?: boolean
+    /**
+     * Initial delay in ms for exponential backoff.
+     *
+     * Default is 100ms
+     */
+    exponentialBackoffInitialDelay?: number
+    /**
+     * Maximum backoff delay in ms.
+     *
+     * Prevents exponential backoff from growing indefinitely.
+     *
+     * Default is 60000 (60 seconds)
+     */
+    maxBackoff?: number
+    /**
+     * Add random jitter to retry delays to prevent thundering herd.
+     *
+     * When enabled, actual delay will be randomized between 50% and 100% of calculated delay.
+     *
+     * Default is true
+     */
+    retryJitter?: boolean
+    /**
+     * Retry all errors, not just connection errors.
+     *
+     * When enabled, will retry RpcError, RpcProtocolError, and all other errors.
+     *
+     * Default is false (only retries connection errors)
+     */
+    retryAllErrors?: boolean
     /**
      * Maximum number of requests in a single batch call
      */
@@ -449,6 +488,11 @@ export class EvmBatchProcessor<F extends FieldSelection = {}> {
             capacity: this.rpcEndpoint.capacity ?? 10,
             rateLimit: this.rpcEndpoint.rateLimit,
             retryAttempts: this.rpcEndpoint.retryAttempts ?? Number.MAX_SAFE_INTEGER,
+            useExponentialBackoff: this.rpcEndpoint.useExponentialBackoff,
+            exponentialBackoffInitialDelay: this.rpcEndpoint.exponentialBackoffInitialDelay,
+            maxBackoff: this.rpcEndpoint.maxBackoff,
+            retryJitter: this.rpcEndpoint.retryJitter,
+            retryAllErrors: this.rpcEndpoint.retryAllErrors,
             log: this.getLogger().child('rpc', {rpcUrl: this.rpcEndpoint.url})
         })
         this.getPrometheusServer().addChainRpcMetrics(() => client.getMetrics())

@@ -5,6 +5,7 @@ import {DataSource, EntityManager, type DataSourceOptions} from 'typeorm'
 import {ChangeTracker, rollbackBlock} from './hot'
 import {DatabaseState, FinalTxInfo, HashAndHeight, HotTxInfo} from './interfaces'
 import {Store} from './store'
+import process from 'process'
 
 
 export type IsolationLevel = 'SERIALIZABLE' | 'READ COMMITTED' | 'REPEATABLE READ'

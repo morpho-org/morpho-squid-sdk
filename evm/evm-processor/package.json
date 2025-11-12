@@ -1,14 +1,17 @@
 {
   "name": "@morpho-dev/subsquid-evm-processor",
-  "version": "1.28.1",
-  "description": "Data fetcher and mappings executor for EVM-based chains - Morpho fork with enhanced retry mechanism",
+  "version": "1.28.2",
+  "description": "Data fetcher and mappings executor for EVM-based chains with enhanced exponential retry mechanism",
   "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/morpho-org/morpho-squid-sdk.git",
+    "url": "https://github.com/morpho-org/morpho-squid-sdk.git",
     "directory": "evm/evm-processor"
   },
-  "homepage": "https://github.com/morpho-org/morpho-squid-sdk/tree/master/evm/evm-processor",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "subsquid",
     "evm",
@@ -16,13 +19,10 @@
     "processor",
     "indexer",
     "blockchain",
-    "morpho",
-    "retry"
+    "retry",
+    "exponential-backoff",
+    "morpho"
   ],
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
   "files": [
     "lib",
     "src"

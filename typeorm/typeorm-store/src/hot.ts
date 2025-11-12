@@ -54,7 +54,7 @@ export class ChangeTracker {
         return this.writeChangeRows(entities.map(e => {
             return {
                 kind: 'insert',
-                table: meta.tableName,
+                table: `${meta.schema}"."${meta.tableName}`,
                 id: e.id
             }
         }))
@@ -77,14 +77,14 @@ export class ChangeTracker {
             if (fields) {
                 return {
                     kind: 'update',
-                    table: meta.tableName,
+                    table: `${meta.schema}"."${meta.tableName}`,
                     id: e.id,
                     fields
                 }
             } else {
                 return {
                     kind: 'insert',
-                    table: meta.tableName,
+                    table: `${meta.schema}"."${meta.tableName}`,
                     id: e.id,
                 }
             }
@@ -98,7 +98,7 @@ export class ChangeTracker {
             let {id, ...fields} = e
             return {
                 kind: 'delete',
-                table: meta.tableName,
+                table: `${meta.schema}"."${meta.tableName}`,
                 id: id,
                 fields
             }
@@ -107,7 +107,7 @@ export class ChangeTracker {
 
     private async fetchEntities(meta: EntityMetadata, ids: string[]): Promise<Entity[]> {
         let entities = await this.em.query(
-            `SELECT * FROM ${this.escape(meta.tableName)} WHERE id = ANY($1::text[])`,
+            `SELECT * FROM ${this.escape(`${meta.schema}"."${meta.tableName}`)} WHERE id = ANY($1::text[])`,
             [ids]
         )
 
@@ -210,7 +210,11 @@ export async function rollbackBlock(
     await em.query(`DELETE FROM ${schema}.hot_block WHERE height = $1`, [blockHeight])
 
     if (rollbackHook) {
-        await rollbackHook(blockHeight)
+        try {
+            await rollbackHook(blockHeight)
+        } catch (error) {
+            console.error(`Failed to execute rollback hook for block ${blockHeight}:`, error)
+        }
     }
 }
 
