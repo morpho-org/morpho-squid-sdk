@@ -61,74 +61,80 @@ export class Store {
     /**
      * Alias for {@link Store.upsert}
      */
-    save<E extends Entity>(entity: E): Promise<void>
-    save<E extends Entity>(entities: E[]): Promise<void>
-    save<E extends Entity>(e: E | E[]): Promise<void> {
-        if (Array.isArray(e)) { // please the compiler
-            return this.upsert(e)
+    save<E extends Entity>(entity: E, idColumns?: string[]): Promise<void>
+    save<E extends Entity>(entities: E[], idColumns?: string[]): Promise<void>
+    save<E extends Entity>(e: E | E[], idColumns?: string[]): Promise<void> {
+        if (Array.isArray(e)) {
+            return this.upsert(e, idColumns)
         } else {
-            return this.upsert(e)
+            return this.upsert(e, idColumns)
         }
     }
 
     /**
      * Upserts a given entity or entities into the database.
      *
-     * It always executes a primitive operation without cascades, relations, etc.
+     * @param e Entity or array of entities to upsert
+     * @param idColumns Array of column names to use as unique identifier(s) for upsert. Defaults to ['id']
      */
-    upsert<E extends Entity>(entity: E): Promise<void>
-    upsert<E extends Entity>(entities: E[]): Promise<void>
-    async upsert<E extends Entity>(e: E | E[]): Promise<void> {
+    upsert<E extends Entity>(entity: E, idColumns?: string[]): Promise<void>
+    upsert<E extends Entity>(entities: E[], idColumns?: string[]): Promise<void>
+    async upsert<E extends Entity>(e: E | E[], idColumns: string[] = ['id']): Promise<void> {
         if (Array.isArray(e)) {
             if (e.length == 0) return
-            let entityClass = e[0].constructor as EntityClass<E>
+            const entityClass = e[0].constructor as EntityClass<E>
             for (let i = 1; i < e.length; i++) {
                 assert(entityClass === e[i].constructor, 'mass saving allowed only for entities of the same class')
             }
             await this.changes?.trackUpsert(entityClass, e)
-            await this.saveMany(entityClass, e)
+            await this.saveMany(entityClass, e, idColumns)
         } else {
-            let entityClass = e.constructor as EntityClass<E>
+            const entityClass = e.constructor as EntityClass<E>
             await this.changes?.trackUpsert(entityClass, [e])
-            await this.em().upsert(entityClass, e as any, ['id'])
+            await this.em().upsert(entityClass, e as any, idColumns)
         }
     }
 
-    private async saveMany(entityClass: EntityClass<any>, entities: any[]): Promise<void> {
+    private async saveMany(entityClass: EntityClass<any>, entities: any[], idColumns: string[] = ['id']): Promise<void> {
         assert(entities.length > 0)
-        let em = this.em()
-        let metadata = em.connection.getMetadata(entityClass)
-        let fk = metadata.columns.filter(c => c.relationMetadata)
-        if (fk.length == 0) return this.upsertMany(em, entityClass, entities)
+        const em = this.em()
+        const metadata = em.connection.getMetadata(entityClass)
+        const fk = metadata.columns.filter(c => c.relationMetadata)
+        if (fk.length == 0) return this.upsertMany(em, entityClass, entities, idColumns)
         let currentSignature = this.getFkSignature(fk, entities[0])
         let batch = []
-        for (let e of entities) {
-            let sig = this.getFkSignature(fk, e)
+        for (const e of entities) {
+            const sig = this.getFkSignature(fk, e)
             if (sig === currentSignature) {
                 batch.push(e)
             } else {
-                await this.upsertMany(em, entityClass, batch)
+                await this.upsertMany(em, entityClass, batch, idColumns)
                 currentSignature = sig
                 batch = [e]
             }
         }
         if (batch.length) {
-            await this.upsertMany(em, entityClass, batch)
+            await this.upsertMany(em, entityClass, batch, idColumns)
         }
     }
 
     private getFkSignature(fk: ColumnMetadata[], entity: any): bigint {
         let sig = 0n
         for (let i = 0; i < fk.length; i++) {
-            let bit = fk[i].getEntityValue(entity) === undefined ? 0n : 1n
+            const bit = fk[i].getEntityValue(entity) === undefined ? 0n : 1n
             sig |= (bit << BigInt(i))
         }
         return sig
     }
 
-    private async upsertMany(em: EntityManager, entityClass: EntityClass<any>, entities: any[]): Promise<void> {
-        for (let b of splitIntoBatches(entities, 1000)) {
-            await em.upsert(entityClass, b as any, ['id'])
+    private async upsertMany(
+        em: EntityManager,
+        entityClass: EntityClass<any>,
+        entities: any[],
+        idColumns: string[] = ['id']
+    ): Promise<void> {
+        for (const b of splitIntoBatches(entities, 1000)) {
+            await em.upsert(entityClass, b as any, idColumns)
         }
     }
 

@@ -1,13 +1,15 @@
 import {createOrmConfig} from '@subsquid/typeorm-config'
 import {assertNotNull, last, maybeLast} from '@subsquid/util-internal'
 import assert from 'assert'
-import {DataSource, EntityManager} from 'typeorm'
+import {DataSource, EntityManager, type DataSourceOptions} from 'typeorm'
 import {ChangeTracker, rollbackBlock} from './hot'
 import {DatabaseState, FinalTxInfo, HashAndHeight, HotTxInfo} from './interfaces'
 import {Store} from './store'
+import process from 'process'
 
 
 export type IsolationLevel = 'SERIALIZABLE' | 'READ COMMITTED' | 'REPEATABLE READ'
+export type RollbackHook = (block: number) => Promise<void>
 
 
 export interface TypeormDatabaseOptions {
@@ -15,6 +17,8 @@ export interface TypeormDatabaseOptions {
     isolationLevel?: IsolationLevel
     stateSchema?: string
     projectDir?: string
+    customTypeOrmOptions?: DataSourceOptions
+    rollbackHook?: RollbackHook
 }
 
 
@@ -23,20 +27,24 @@ export class TypeormDatabase {
     private isolationLevel: IsolationLevel
     private con?: DataSource
     private projectDir: string
+    private customTypeOrmOptions?: DataSourceOptions
 
     public readonly supportsHotBlocks: boolean
+    private rollbackHook?: RollbackHook
 
     constructor(options?: TypeormDatabaseOptions) {
         this.statusSchema = options?.stateSchema || 'squid_processor'
         this.isolationLevel = options?.isolationLevel || 'SERIALIZABLE'
         this.supportsHotBlocks = options?.supportHotBlocks !== false
         this.projectDir = options?.projectDir || process.cwd()
+        this.customTypeOrmOptions = options?.customTypeOrmOptions
+        this.rollbackHook = options?.rollbackHook
     }
 
     async connect(): Promise<DatabaseState> {
         assert(this.con == null, 'already connected')
 
-        let cfg = createOrmConfig({projectDir: this.projectDir})
+        let cfg = this.customTypeOrmOptions ? this.customTypeOrmOptions : createOrmConfig({projectDir: this.projectDir})
         this.con = new DataSource(cfg)
 
         await this.con.initialize()
@@ -129,7 +137,7 @@ export class TypeormDatabase {
 
             for (let i = state.top.length - 1; i >= 0; i--) {
                 let block = state.top[i]
-                await rollbackBlock(this.statusSchema, em, block.height)
+                await rollbackBlock(this.statusSchema, em, block.height, this.rollbackHook)
             }
 
             await this.performUpdates(cb, em)
@@ -163,7 +171,7 @@ export class TypeormDatabase {
             let rollbackPos = info.baseHead.height + 1 - chain[0].height
 
             for (let i = chain.length - 1; i >= rollbackPos; i--) {
-                await rollbackBlock(this.statusSchema, em, chain[i].height)
+                await rollbackBlock(this.statusSchema, em, chain[i].height, this.rollbackHook)
             }
 
             if (info.newBlocks.length) {
