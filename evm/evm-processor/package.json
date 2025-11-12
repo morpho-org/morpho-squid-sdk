@@ -1,6 +1,6 @@
 {
   "name": "@morpho-dev/subsquid-evm-processor",
-  "version": "1.28.2",
+  "version": "1.28.3",
   "description": "Data fetcher and mappings executor for EVM-based chains with enhanced exponential retry mechanism",
   "license": "GPL-3.0-or-later",
   "repository": {

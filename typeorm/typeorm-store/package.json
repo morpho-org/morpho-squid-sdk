@@ -1,6 +1,6 @@
 {
   "name": "@morpho-dev/subsquid-typeorm-store",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "TypeORM based storage for squid mappings - Morpho fork with custom TypeORM options and rollback hooks",
   "license": "GPL-3.0-or-later",
   "repository": {
