@@ -1,6 +1,6 @@
 import {Logger} from '@subsquid/logger'
-import {CallOptions, RpcClient, RpcError} from '@subsquid/rpc-client'
-import {RpcErrorInfo} from '@subsquid/rpc-client/lib/interfaces'
+import {CallOptions, RpcClient, RpcError} from '@morpho-dev/subsquid-rpc-client'
+import {RpcErrorInfo} from '@morpho-dev/subsquid-rpc-client/lib/interfaces'
 import {groupBy, last} from '@subsquid/util-internal'
 import {assertIsValid, BlockConsistencyError, trimInvalid} from '@subsquid/util-internal-ingest-tools'
 import {FiniteRange, rangeToArray, SplitRequest} from '@subsquid/util-internal-range'
