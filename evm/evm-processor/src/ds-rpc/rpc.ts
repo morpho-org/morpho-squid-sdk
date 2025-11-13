@@ -236,8 +236,10 @@ export class Rpc {
                 withTransactions ? nullable(GetBlockWithTransactions) : nullable(GetBlockNoTransactions)
             ),
             validateError: info => {
-                // Avalanche
+                // Avalanche - cannot query unfinalized data
                 if (/cannot query unfinalized data/i.test(info.message)) return null
+                // Block not found - endpoint doesn't have this block yet
+                if (info.message.includes('not found')) return null
                 throw new RpcError(info)
             }
         })
