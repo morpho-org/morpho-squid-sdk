@@ -37,7 +37,9 @@ export const getBlockValidator = weakMemo((req: MappingRequest) => {
         ? object({
             ...getTxProps(req.fields.transaction, false),
             hash: BYTES,
-            input: BYTES,
+            // Native account-abstraction txs (e.g. Tempo type 0x76) omit `input`;
+            // their calldata lives in `calls`. Default to '0x' instead of failing validation.
+            input: withDefault('0x', BYTES),
             from: BYTES,
             to: option(BYTES),
         })
