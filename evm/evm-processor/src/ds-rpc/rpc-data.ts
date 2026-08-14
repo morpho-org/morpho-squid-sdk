@@ -51,7 +51,9 @@ const Transaction = object({
     blockHash: BYTES,
     transactionIndex: SMALL_QTY,
     hash: BYTES,
-    input: BYTES
+    // Native account-abstraction txs (e.g. Tempo type 0x76) omit `input`;
+    // their calldata lives in `calls`. Default to '0x' instead of failing validation.
+    input: withDefault('0x', BYTES)
 })
 
 
