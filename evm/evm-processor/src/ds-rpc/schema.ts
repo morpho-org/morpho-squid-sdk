@@ -51,6 +51,7 @@ export const getBlockValidator = weakMemo((req: MappingRequest) => {
     })
 
     let Log = object({
+        transactionHash: option(BYTES),
         ...getLogProps(
             {...req.fields.log, address: true, topics: true},
             false
