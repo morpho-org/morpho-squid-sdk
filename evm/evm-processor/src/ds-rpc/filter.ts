@@ -154,19 +154,27 @@ export function filterBlock(block: Block, dataRequest: DataRequest): void {
                 include.addTransaction(log.transaction)
             }
             if (rel.transactionLogs) {
-                let logs = log.transaction?.logs ?? logsByTransaction.get(log.transactionIndex) ?? []
+                let logs = log.transaction?.logs
+                    ?? (log.transactionHash == null
+                        ? logsByTransaction.get(log.transactionIndex)
+                        : logsByTransaction.get(log.transactionIndex)?.filter(sibling => sibling.transactionHash === log.transactionHash))
+                    ?? []
                 for (let sibling of logs) {
                     include.addLog(sibling)
                 }
             }
             if (rel.transactionTraces) {
-                let traces = log.transaction?.traces ?? tracesByTransaction.get(log.transactionIndex) ?? []
+                let traces = log.transaction?.traces
+                    ?? (log.transactionHash == null ? tracesByTransaction.get(log.transactionIndex) : undefined)
+                    ?? []
                 for (let trace of traces) {
                     include.addTrace(trace)
                 }
             }
             if (rel.transactionStateDiffs) {
-                let stateDiffs = log.transaction?.stateDiffs ?? stateDiffsByTransaction.get(log.transactionIndex) ?? []
+                let stateDiffs = log.transaction?.stateDiffs
+                    ?? (log.transactionHash == null ? stateDiffsByTransaction.get(log.transactionIndex) : undefined)
+                    ?? []
                 for (let diff of stateDiffs) {
                     include.addStateDiff(diff)
                 }
