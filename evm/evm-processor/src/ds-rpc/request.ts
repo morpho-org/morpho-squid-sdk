@@ -49,7 +49,7 @@ function transactionLinksRequested(req?: DataRequest): boolean {
     if (req == null) return false
     if (req.logs) {
         for (let log of req.logs) {
-            if (log.transactionTraces || log.transactionStateDiffs) return true
+            if (log.transactionLogs || log.transactionTraces || log.transactionStateDiffs) return true
         }
     }
     if (req.traces) {
