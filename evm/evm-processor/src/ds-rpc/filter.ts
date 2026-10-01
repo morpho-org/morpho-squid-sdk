@@ -214,7 +214,7 @@ export function filterBlock(block: Block, dataRequest: DataRequest): void {
                 include.addTransaction(trace.transaction)
             }
             if (rel.transactionLogs) {
-                let logs = logsByTransaction.get(trace.transactionIndex) ?? []
+                let logs = trace.transaction?.logs ?? logsByTransaction.get(trace.transactionIndex) ?? []
                 for (let log of logs) {
                     include.addLog(log)
                 }
