@@ -66,9 +66,7 @@ function tryMapBlock(rpcBlock: RpcBlock, req: MappingRequest): Block {
             let stx = transactions[i]
             let tx = new Transaction(header, i)
             if (typeof stx == 'string') {
-                if (req.fields.transaction?.hash) {
-                    tx.hash = stx
-                }
+                tx.hash = stx
             } else {
                 let {transactionIndex, ...props} = stx
                 Object.assign(tx, props)

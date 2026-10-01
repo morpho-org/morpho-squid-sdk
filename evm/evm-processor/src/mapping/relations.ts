@@ -1,4 +1,5 @@
 import {maybeLast} from '@subsquid/util-internal'
+import {Bytes32} from '../interfaces/base'
 import {Block, Trace, Transaction} from './entities'
 
 
@@ -8,12 +9,19 @@ export function setUpRelations(block: Block): void {
     block.traces.sort(traceCompare)
 
     let txs: (Transaction | undefined)[] = new Array((maybeLast(block.transactions)?.transactionIndex ?? -1) + 1)
+    let txsByHash = new Map<Bytes32, Transaction>()
     for (let tx of block.transactions) {
         txs[tx.transactionIndex] = tx
+        if (tx.hash != null) {
+            txsByHash.set(tx.hash, tx)
+        }
     }
 
     for (let rec of block.logs) {
         let tx = txs[rec.transactionIndex]
+        if (rec.transactionHash != null && tx?.hash !== rec.transactionHash) {
+            tx = txsByHash.get(rec.transactionHash) ?? (tx?.hash == null ? tx : undefined)
+        }
         if (tx) {
             rec.transaction = tx
             tx.logs.push(rec)
