@@ -34,7 +34,7 @@
     "@subsquid/util-internal": "^3.2.0"
   },
   "peerDependencies": {
-    "typeorm": "^0.3.17",
+    "typeorm": "^0.3.17 || ^1.1.1",
     "@subsquid/big-decimal": "^1.0.0"
   },
   "devDependencies": {
