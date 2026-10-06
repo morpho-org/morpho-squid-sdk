@@ -107,7 +107,7 @@ export class ChangeTracker {
 
     private async fetchEntities(meta: EntityMetadata, ids: string[]): Promise<Entity[]> {
         let entities = await this.em.query(
-            `SELECT * FROM ${this.escape(`${meta.schema}"."${meta.tableName}`)} WHERE id = ANY($1::text[])`,
+            `SELECT * FROM ${escapeTable(this.em, `${meta.schema}"."${meta.tableName}`)} WHERE id = ANY($1::text[])`,
             [ids]
         )
 
@@ -178,7 +178,7 @@ export async function rollbackBlock(
 
     for (let rec of changes) {
         let {table, id} = rec.change
-        table = escape(em, table)
+        table = escapeTable(em, table)
         switch(rec.change.kind) {
             case 'insert':
                 await em.query(`DELETE FROM ${table} WHERE id = $1`, [id])
@@ -221,6 +221,12 @@ export async function rollbackBlock(
 
 function escape(em: EntityManager, name: string): string {
     return em.connection.driver.escape(name)
+}
+
+// Tables are stored as `schema"."table`. TypeORM 1.x doubles embedded quotes in escape(),
+// so quote each part to keep sending "schema"."table".
+function escapeTable(em: EntityManager, table: string): string {
+    return table.split('"."').map(part => escape(em, part)).join('.')
 }
 
 
