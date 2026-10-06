@@ -18,7 +18,7 @@ export function toMappingRequest(req?: DataRequest): MappingRequest {
     let receipts = txs && isRequested(TX_RECEIPT_FIELDS, req?.fields?.transaction)
     return {
         fields: req?.fields || {},
-        transactionList: txs,
+        transactionList: txs || transactionLinksRequested(req),
         logList: logs,
         // include transactions if we potentially have item filters or when tx fields are requested
         transactions: !!req?.transactions?.length || txs && isRequested(TX_FIELDS, req?.fields?.transaction),
@@ -39,6 +39,22 @@ function transactionsRequested(req?: DataRequest): boolean {
             for (let it of items) {
                 if (it.transaction) return true
             }
+        }
+    }
+    return false
+}
+
+
+function transactionLinksRequested(req?: DataRequest): boolean {
+    if (req == null) return false
+    if (req.logs) {
+        for (let log of req.logs) {
+            if (log.transactionLogs || log.transactionTraces || log.transactionStateDiffs) return true
+        }
+    }
+    if (req.traces) {
+        for (let trace of req.traces) {
+            if (trace.transactionLogs) return true
         }
     }
     return false
