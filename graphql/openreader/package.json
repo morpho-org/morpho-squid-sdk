@@ -63,7 +63,7 @@
     "dotenv": "^16.3.1",
     "expect": "^29.7.0",
     "gql-test-client": "^0.0.0",
-    "mocha": "^10.7.0",
+    "mocha": "^12.0.3",
     "typescript": "~5.5.4",
     "@types/inflected": "^2.1.3"
   }
