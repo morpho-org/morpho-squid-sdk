@@ -2,7 +2,7 @@ import {createLogger} from '@subsquid/logger'
 import {HttpClient} from '@subsquid/http-client'
 import zlib from 'zlib'
 import {address, binary, struct, Src} from '@subsquid/borsh'
-import {RpcClient} from '@subsquid/rpc-client'
+import {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 import {Address, createAddressWithSeed, getProgramDerivedAddress} from '@solana/addresses'
 
 const http = new HttpClient({

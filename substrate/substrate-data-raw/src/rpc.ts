@@ -1,5 +1,5 @@
-import {CallOptions, RpcClient, RpcError} from '@subsquid/rpc-client'
-import {RpcErrorInfo} from '@subsquid/rpc-client/lib/interfaces'
+import {CallOptions, RpcClient, RpcError} from '@morpho-dev/subsquid-rpc-client'
+import {RpcErrorInfo} from '@morpho-dev/subsquid-rpc-client/lib/interfaces'
 import {BlockHeader, Bytes, GetBlockResult, Hash, RuntimeVersion} from './interfaces'
 import {toQty} from './util'
 

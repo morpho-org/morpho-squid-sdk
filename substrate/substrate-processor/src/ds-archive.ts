@@ -1,4 +1,4 @@
-import {RpcClient} from '@subsquid/rpc-client'
+import {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 import {Rpc, RuntimeTracker, WithRuntime} from '@subsquid/substrate-data'
 import {OldSpecsBundle, OldTypesBundle} from '@subsquid/substrate-runtime/lib/metadata'
 import {annotateSyncError, assertNotNull} from '@subsquid/util-internal'

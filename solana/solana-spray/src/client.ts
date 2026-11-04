@@ -1,4 +1,4 @@
-import {RpcClient} from '@subsquid/rpc-client'
+import {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 import {AsyncQueue, ensureError} from '@subsquid/util-internal'
 import {cast} from '@subsquid/util-internal-validation'
 import {getDataNotificationSchema} from './data/notification-schema'

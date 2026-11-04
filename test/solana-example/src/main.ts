@@ -1,7 +1,7 @@
 import {run} from '@subsquid/batch-processor'
 import {augmentBlock} from '@subsquid/solana-objects'
 import {DataSourceBuilder, SolanaRpcClient} from '@subsquid/solana-stream'
-import {TypeormDatabase} from '@subsquid/typeorm-store'
+import {TypeormDatabase} from '@morpho-dev/subsquid-typeorm-store'
 import assert from 'assert'
 import * as tokenProgram from './abi/token-program'
 import * as whirlpool from './abi/whirlpool'

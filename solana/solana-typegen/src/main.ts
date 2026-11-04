@@ -8,7 +8,7 @@ import * as validator from '@subsquid/util-internal-commander'
 import {Typegen} from './typegen'
 import {fromAnchor} from './program/anchor'
 import {fetchIdl, GET} from './util/fetch'
-import {RpcClient} from '@subsquid/rpc-client'
+import {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 import {address, Address, isAddress} from '@solana/addresses'
 import {getProgramIdl} from '@solanafm/explorer-kit-idls'
 

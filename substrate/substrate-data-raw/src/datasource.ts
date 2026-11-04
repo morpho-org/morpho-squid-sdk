@@ -1,5 +1,5 @@
 import {Logger, LogLevel} from '@subsquid/logger'
-import {RpcClient, SubscriptionHandle} from '@subsquid/rpc-client'
+import {RpcClient, SubscriptionHandle} from '@morpho-dev/subsquid-rpc-client'
 import {AsyncQueue, ensureError, maybeLast, partitionBy, Throttler, wait} from '@subsquid/util-internal'
 import {
     assertIsValid,
