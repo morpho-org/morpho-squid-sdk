@@ -1,5 +1,5 @@
-import {CallOptions, RpcClient, RpcError, RpcProtocolError} from '@subsquid/rpc-client'
-import {RpcCall, RpcErrorInfo} from '@subsquid/rpc-client/lib/interfaces'
+import {CallOptions, RpcClient, RpcError, RpcProtocolError} from '@morpho-dev/subsquid-rpc-client'
+import {RpcCall, RpcErrorInfo} from '@morpho-dev/subsquid-rpc-client/lib/interfaces'
 import {GetBlock} from '@subsquid/solana-rpc-data'
 import {Simplify, wait} from '@subsquid/util-internal'
 import {

@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "@subsquid/http-client": "^1.8.0",
-    "@subsquid/rpc-client": "^4.14.0",
+    "@morpho-dev/subsquid-rpc-client": "^4.14.0",
     "@subsquid/scale-codec": "^4.0.1",
     "@subsquid/substrate-metadata-explorer": "^3.2.0",
     "@subsquid/substrate-runtime": "^2.0.1",

@@ -1,5 +1,5 @@
 import {HttpClient} from '@subsquid/http-client'
-import {RpcClient} from '@subsquid/rpc-client'
+import {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 import {readSpecVersions, SpecVersion} from '@subsquid/substrate-metadata-explorer/lib/specVersion'
 import {Bytes, Runtime} from '@subsquid/substrate-runtime'
 import {decodeMetadata} from '@subsquid/substrate-runtime/lib/metadata'

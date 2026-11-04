@@ -1,5 +1,5 @@
 import {SubstrateBatchProcessor} from "@subsquid/substrate-processor"
-import {TypeormDatabase} from "@subsquid/typeorm-store"
+import {TypeormDatabase} from "@morpho-dev/subsquid-typeorm-store"
 import * as erc20 from "./abi/erc20"
 import {Transfer} from "./model"
 

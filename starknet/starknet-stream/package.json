@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@subsquid/http-client": "^1.8.0",
-    "@subsquid/rpc-client": "^4.14.0",
+    "@morpho-dev/subsquid-rpc-client": "^4.14.0",
     "@subsquid/logger": "^1.4.0",
     "@subsquid/starknet-normalization": "^0.1.0",
     "@subsquid/starknet-data": "^0.1.0",

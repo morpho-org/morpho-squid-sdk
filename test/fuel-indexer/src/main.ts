@@ -1,7 +1,7 @@
 import {run} from '@subsquid/batch-processor'
 import {augmentBlock} from '@subsquid/fuel-objects'
 import {DataSourceBuilder} from '@subsquid/fuel-stream'
-import {TypeormDatabase} from '@subsquid/typeorm-store'
+import {TypeormDatabase} from '@morpho-dev/subsquid-typeorm-store'
 import {Contract} from './model'
 
 

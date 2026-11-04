@@ -1,7 +1,7 @@
 import { run} from '@subsquid/batch-processor'
 import { augmentBlock } from '@subsquid/starknet-objects'
 import { DataSourceBuilder, StarknetRpcClient } from '@subsquid/starknet-stream'
-import { TypeormDatabase } from '@subsquid/typeorm-store'
+import { TypeormDatabase } from '@morpho-dev/subsquid-typeorm-store'
 import { createLogger } from '@subsquid/logger'
 import { Transfer } from './model'
 
