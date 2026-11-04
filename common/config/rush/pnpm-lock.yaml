@@ -353,18 +353,9 @@ dependencies:
   '@subsquid/apollo-server-express':
     specifier: ^3.14.1
     version: 3.14.1(express@4.18.2)(graphql@15.8.0)
-  '@subsquid/evm-processor':
-    specifier: ^1.27.3
-    version: 1.30.1
   '@subsquid/graphiql-console':
     specifier: ^0.3.0
     version: 0.3.0
-  '@subsquid/rpc-client':
-    specifier: ^4.14.0
-    version: 4.16.1
-  '@subsquid/typeorm-store':
-    specifier: ^1.5.1
-    version: 1.9.2(typeorm@0.3.17)
   '@subsquid/util-internal-validation':
     specifier: ^0.7.0
     version: 0.7.0
@@ -7166,7 +7157,7 @@ packages:
     dev: false
 
   file:projects/astar-erc20.tgz(supports-color@8.1.1)(ts-node@10.9.2):
-    resolution: {integrity: sha512-QaJRCwAQ/1zjcase5vvP+kk/vjOj+afnGDaORfpY2wL/AWlEk+tvNfJCZ8OUiZWHT0oSpphvkpwxHHuG7IQ9xQ==, tarball: file:projects/astar-erc20.tgz}
+    resolution: {integrity: sha512-+4kvR6N3yqJY8k3urH87AiNOc2hQCCqUTsnni+NJmKX71vjIfQCwN3ZA7w1ubQVq5sIqQyJJFsgSYT23O1sARw==, tarball: file:projects/astar-erc20.tgz}
     id: file:projects/astar-erc20.tgz
     name: '@rush-temp/astar-erc20'
     version: 0.0.0
@@ -7181,7 +7172,6 @@ packages:
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
-      - '@subsquid/big-decimal'
       - better-sqlite3
       - bufferutil
       - hdb-pool
@@ -7202,7 +7192,7 @@ packages:
     dev: false
 
   file:projects/balances.tgz(supports-color@8.1.1):
-    resolution: {integrity: sha512-qQ1heYGFuI2NRZNHFEhN7J5DueaNejcjH1HlBn4EdIe9uoWkRut8D2Eq177VNPACY61eJH1epoJg1MlO2DtL/w==, tarball: file:projects/balances.tgz}
+    resolution: {integrity: sha512-4+Zq9ro4UHUyg/72v1RiRSxFnuXTm0ijsWCLll4BE9mqfWlkoc9+xA3kSmCijXmnIEWlGIgeZtWp1ZfUWXYI2w==, tarball: file:projects/balances.tgz}
     id: file:projects/balances.tgz
     name: '@rush-temp/balances'
     version: 0.0.0
@@ -7217,7 +7207,6 @@ packages:
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
-      - '@subsquid/big-decimal'
       - '@swc/core'
       - '@swc/wasm'
       - better-sqlite3
@@ -7294,7 +7283,7 @@ packages:
     dev: false
 
   file:projects/data-test.tgz:
-    resolution: {integrity: sha512-i/ZSmSItiCBneOZG4LXDDr+qytnKvADlos1abW+gSxIZF2uC5T7qpX+zVQ3cUZxsBms03SNTtqUSz7yJmDSkOQ==, tarball: file:projects/data-test.tgz}
+    resolution: {integrity: sha512-9nMFHTCx5rc2d3DWug029nBjxW1rg4d4ux84PrsjMsPABkjHJ8HgBgOh6+/HldRObEdB6veakCk71S7lKLYEPw==, tarball: file:projects/data-test.tgz}
     name: '@rush-temp/data-test'
     version: 0.0.0
     dependencies:
@@ -7309,7 +7298,7 @@ packages:
     dev: false
 
   file:projects/erc20-transfers.tgz(supports-color@8.1.1)(ts-node@10.9.2):
-    resolution: {integrity: sha512-XIwLGprBHpfpouIhkWtaBATSRX5meQw7YLZhs5dQIlbuOqqKsgP/yZyVDszhGKd3CfGQcV0LklGYF92Szi33Kw==, tarball: file:projects/erc20-transfers.tgz}
+    resolution: {integrity: sha512-Pex+zKbU61dFCQ5A8NPsID9AzFhVtr/KeLvEcWb8sCr6NGoybJEhMIV0T5kIPepwSg7lOOhm5S10caPGkeODgg==, tarball: file:projects/erc20-transfers.tgz}
     id: file:projects/erc20-transfers.tgz
     name: '@rush-temp/erc20-transfers'
     version: 0.0.0
@@ -7325,7 +7314,6 @@ packages:
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
-      - '@subsquid/big-decimal'
       - better-sqlite3
       - bufferutil
       - hdb-pool
@@ -7456,7 +7444,7 @@ packages:
     dev: false
 
   file:projects/fuel-indexer.tgz(supports-color@8.1.1)(ts-node@10.9.2):
-    resolution: {integrity: sha512-Ovsz6NAhY1LGr7qCPcYlZ9bGV9ziKf/siyHgUxTvjdvc8VECb7MTQt5rArLImn5jznCfYw0Z0J6C36wMxj/fhQ==, tarball: file:projects/fuel-indexer.tgz}
+    resolution: {integrity: sha512-dRH+KBbkUdr/WX7IPikcrPtDdRvrwLiRit0TM4y+hjHHrMBAzgCFMXVC/6w2aGmrmaqXpRDQA06InTFZJROrIg==, tarball: file:projects/fuel-indexer.tgz}
     id: file:projects/fuel-indexer.tgz
     name: '@rush-temp/fuel-indexer'
     version: 0.0.0
@@ -7470,7 +7458,6 @@ packages:
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
-      - '@subsquid/big-decimal'
       - better-sqlite3
       - hdb-pool
       - ioredis
@@ -7698,7 +7685,7 @@ packages:
     dev: false
 
   file:projects/polkavm-erc20.tgz(supports-color@8.1.1)(ts-node@10.9.2):
-    resolution: {integrity: sha512-i6k0evdS0GnhXN5w0wP2PtChFCzrwGNCT8y5Ga3P4rSs6wjNBNCYwMsIg9+snGP36M4yqhIkyw0V9SK3EhUneA==, tarball: file:projects/polkavm-erc20.tgz}
+    resolution: {integrity: sha512-zQPvrnqNs2+TVO6hDyNH0io2dEizcV1faJpuMtaUQTgf7fwl9TN7XzJKxIwQAFkic8SlDC7QvSMBUO8xQ4AhYw==, tarball: file:projects/polkavm-erc20.tgz}
     id: file:projects/polkavm-erc20.tgz
     name: '@rush-temp/polkavm-erc20'
     version: 0.0.0
@@ -7712,7 +7699,6 @@ packages:
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
-      - '@subsquid/big-decimal'
       - better-sqlite3
       - hdb-pool
       - ioredis
@@ -7768,7 +7754,7 @@ packages:
     dev: false
 
   file:projects/shibuya-erc20.tgz(supports-color@8.1.1)(ts-node@10.9.2):
-    resolution: {integrity: sha512-0xdOY2XJ7yjTy1dSkGvvB23bcPSckLA+kd4YtTTSRGuP72izNLdBAWnSn2xVw+OgA6ohITtMTlRclF0JuJ72WQ==, tarball: file:projects/shibuya-erc20.tgz}
+    resolution: {integrity: sha512-kEZ82iKgAB/ZCKsCXYpIBTay1E2NGAFL3A9PSykpTXcuCwolxRQSMM6xzFuSMDjTI4ocICWhfUm2So8e80oKkw==, tarball: file:projects/shibuya-erc20.tgz}
     id: file:projects/shibuya-erc20.tgz
     name: '@rush-temp/shibuya-erc20'
     version: 0.0.0
@@ -7782,7 +7768,6 @@ packages:
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
-      - '@subsquid/big-decimal'
       - better-sqlite3
       - hdb-pool
       - ioredis
@@ -7801,7 +7786,7 @@ packages:
     dev: false
 
   file:projects/shibuya-psp22.tgz(supports-color@8.1.1)(ts-node@10.9.2):
-    resolution: {integrity: sha512-5tp16MkLKKMmoX4v2Te+RtA16dMEKds7HtmDPbFEw23BljlSPcRQaVLl+6+yAmlDNlu1+U7KC/v5PYXLtqaaFA==, tarball: file:projects/shibuya-psp22.tgz}
+    resolution: {integrity: sha512-jdaGqKCnwe1sQv8+tdapq1TiULoQc/4bSQ+wCypTEEir2XNW/EBNGE736vmb+VQVijh/LV+MnxsMEebRqgqAGA==, tarball: file:projects/shibuya-psp22.tgz}
     id: file:projects/shibuya-psp22.tgz
     name: '@rush-temp/shibuya-psp22'
     version: 0.0.0
@@ -7815,7 +7800,6 @@ packages:
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
-      - '@subsquid/big-decimal'
       - better-sqlite3
       - hdb-pool
       - ioredis
@@ -7834,7 +7818,7 @@ packages:
     dev: false
 
   file:projects/solana-dump.tgz:
-    resolution: {integrity: sha512-RNNraLn0rhp5BnJYrIZmG94IkilcDl9zY11kwb6BZ7l/4rDKeEO+XfBoK9vU/i08WqU+2OXQOWaFMgBfVX7WCA==, tarball: file:projects/solana-dump.tgz}
+    resolution: {integrity: sha512-kRhO6403+U8mLfJaI776lNdcbAsL9XqKxHdS2SymKgllfjmmwLxamZPVIO9fpB6OLkTfpFT24/OxQGQp7TOz4Q==, tarball: file:projects/solana-dump.tgz}
     name: '@rush-temp/solana-dump'
     version: 0.0.0
     dependencies:
@@ -7844,7 +7828,7 @@ packages:
     dev: false
 
   file:projects/solana-example.tgz(supports-color@8.1.1)(ts-node@10.9.2):
-    resolution: {integrity: sha512-Ho2pz8l6d3Sqa3gIiTWxy6gbwuE1eNIA6JDhzgKstRTsD1b9KwLqy4m/wx8OPfTTqm5n2WlUmAqxtdOuF4k3HQ==, tarball: file:projects/solana-example.tgz}
+    resolution: {integrity: sha512-BNd3hBlJCWrkbFxRdhFep3ZHpPfLl4mYL6HHfV7trF6XiH2yQYxiufXuf+WxZvD6jZ+j2B5e9WLjIf/yfyX0+g==, tarball: file:projects/solana-example.tgz}
     id: file:projects/solana-example.tgz
     name: '@rush-temp/solana-example'
     version: 0.0.0
@@ -7858,7 +7842,6 @@ packages:
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
-      - '@subsquid/big-decimal'
       - better-sqlite3
       - hdb-pool
       - ioredis
@@ -7913,7 +7896,7 @@ packages:
     dev: false
 
   file:projects/solana-rpc.tgz:
-    resolution: {integrity: sha512-hffYX4JwctgBKsbpOnvsNT8uVLwq+5alVXbhTkPZeAgpDHg4KIFjaQOFpeP34DE1cllBjPQEUVN1H5MFNnBs/A==, tarball: file:projects/solana-rpc.tgz}
+    resolution: {integrity: sha512-ukhWDV0tS/EyXbBoH9IoPUXwRBPE0egcse5z+afM0CCG5s7mSOiJwxEkbb/nDtJXIeIlH3pVA1NhKeqmAUilDw==, tarball: file:projects/solana-rpc.tgz}
     name: '@rush-temp/solana-rpc'
     version: 0.0.0
     dependencies:
@@ -7923,7 +7906,7 @@ packages:
     dev: false
 
   file:projects/solana-spray.tgz:
-    resolution: {integrity: sha512-j9lNoXVwbjXO83K8Ae0RnGJzn2fLs9Cr+PfVYAoF+QMNdRDyraPF0XfVfgFvvyTqsyv48QLYnIJKTuFbNBQGtA==, tarball: file:projects/solana-spray.tgz}
+    resolution: {integrity: sha512-/WD05BuHWlmnkMvkar0kIXx3F98z3bijToDcBeGeZkpAGzDOASEL9CdsvMe44PS8rRDtU2njWvfTyZRTOtuRJA==, tarball: file:projects/solana-spray.tgz}
     name: '@rush-temp/solana-spray'
     version: 0.0.0
     dependencies:
@@ -7933,7 +7916,7 @@ packages:
     dev: false
 
   file:projects/solana-stream.tgz:
-    resolution: {integrity: sha512-ZcRu8ws3/+U0rtj7//oQnvUiSJHxl4VzmaaO+UOkPpGuexp+VsjLG3dmeEwm4O7vakcGvO4TR6w61FnsOS7t5Q==, tarball: file:projects/solana-stream.tgz}
+    resolution: {integrity: sha512-QEmAgMX1huTD86mxSQM8SZbt6cs2DsSu3BeokYR8He3GT1sPPGf0/tq+eftQKZmiGEouMFEOSLFe9bfccG5lGQ==, tarball: file:projects/solana-stream.tgz}
     name: '@rush-temp/solana-stream'
     version: 0.0.0
     dependencies:
@@ -7944,7 +7927,7 @@ packages:
     dev: false
 
   file:projects/solana-typegen.tgz:
-    resolution: {integrity: sha512-1q/IVn4C1tt50k1Mt1hY15WFwfO5rGcWeUJbsegZHIZrFakAKLzSW/eIuRn0mGss5g+s2LJCxTZ20wJVaFi3bQ==, tarball: file:projects/solana-typegen.tgz}
+    resolution: {integrity: sha512-m39A4TTYZfldoLKA2oH/zmLH7jEpptS4OEqoymLa5MIN7B0gyNADI2P5tdAOPJ3JhPPjyp7GxATU6wN5oYQ0bQ==, tarball: file:projects/solana-typegen.tgz}
     name: '@rush-temp/solana-typegen'
     version: 0.0.0
     dependencies:
@@ -7993,7 +7976,7 @@ packages:
     dev: false
 
   file:projects/starknet-indexer.tgz(supports-color@8.1.1)(ts-node@10.9.2):
-    resolution: {integrity: sha512-jFu3KgP89BzQInf5Pw4d9Fd72ic/L93K9IAuV02zXPeHUObq+gc2p2NNCYeQ4howRRQHpJS8OSUKf9bzNNY3Sg==, tarball: file:projects/starknet-indexer.tgz}
+    resolution: {integrity: sha512-UfOW39fyaWCPKfcEAn60Rtlj/eY88AdDLX0SlH4nFMKL4L32ru8Lw1O7FtNU83ns2GwoamIoxksgZ26BZb1QgA==, tarball: file:projects/starknet-indexer.tgz}
     id: file:projects/starknet-indexer.tgz
     name: '@rush-temp/starknet-indexer'
     version: 0.0.0
@@ -8007,7 +7990,6 @@ packages:
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
-      - '@subsquid/big-decimal'
       - better-sqlite3
       - hdb-pool
       - ioredis
@@ -8044,7 +8026,7 @@ packages:
     dev: false
 
   file:projects/starknet-rpc.tgz:
-    resolution: {integrity: sha512-KyxJGSANAJH5Ajk1kNn3RcqZ/tuVtIuzfsZT1rSxIyfzIm2gZ2kcEBW8/fhtnEtfBmx16siWhH9BpgeMOG83sQ==, tarball: file:projects/starknet-rpc.tgz}
+    resolution: {integrity: sha512-tQ/P/2jvUgjrUCG7u2WkhGHcR7wTJWTq3w4ICgqAQs9q1SAybV81fU7V7v6GbJr+86UA58tvoz9DfOKYR+Lb1w==, tarball: file:projects/starknet-rpc.tgz}
     name: '@rush-temp/starknet-rpc'
     version: 0.0.0
     dependencies:
@@ -8058,7 +8040,7 @@ packages:
     dev: false
 
   file:projects/starknet-stream.tgz:
-    resolution: {integrity: sha512-nfpIIKVcc6SyZcQFVLWMHgn0dbixdCEs0MbKi4xp3r77T20j/Tw/KiNdR4r0y16WgQ3macfDUA3tnaCUDO9JOQ==, tarball: file:projects/starknet-stream.tgz}
+    resolution: {integrity: sha512-RmAVg2qTEQNxH5Yn4VlGQlesibib0WBvOW+oe6fnqqcnVUjKFVqGmMsi5bMqOtbvUxhTiIX2m4gYaBgu3N7DQQ==, tarball: file:projects/starknet-stream.tgz}
     name: '@rush-temp/starknet-stream'
     version: 0.0.0
     dependencies:
@@ -8122,7 +8104,7 @@ packages:
     dev: false
 
   file:projects/substrate-data-raw.tgz:
-    resolution: {integrity: sha512-SKEZBbdSEDlIzkvMANrBdC0PjkBq+2xjozueE4DPVWOt4Ve29Ulkbr+jEX3MiRgkdmE/j0m5mhwCSMaJUvWbNA==, tarball: file:projects/substrate-data-raw.tgz}
+    resolution: {integrity: sha512-SAvd+v1WBe58Wt2laUlHDVFdLrbq0oa+YZO+p+m7kY3VCjMju9zJn01KNDhXyBibIpy53w67P5XfgohI5QDipA==, tarball: file:projects/substrate-data-raw.tgz}
     name: '@rush-temp/substrate-data-raw'
     version: 0.0.0
     dependencies:
@@ -8132,7 +8114,7 @@ packages:
     dev: false
 
   file:projects/substrate-data.tgz:
-    resolution: {integrity: sha512-qX3B4EQ0ei/OX1EwOVds+JeZWnxdqq4Ovc8s1zpHbwuxaygkr0yZyPKk7U8ktKuym7jXfnGDlw/PJk/sXg5vQA==, tarball: file:projects/substrate-data.tgz}
+    resolution: {integrity: sha512-WRBTekZM4Rvwbn5h2S968WIeHYQA8E2bwH8MK2yGMxKSWh1NK4fEB8l99tDM2aC2bZ3nikgsQ+WZkaO8fo4xZA==, tarball: file:projects/substrate-data.tgz}
     name: '@rush-temp/substrate-data'
     version: 0.0.0
     dependencies:
@@ -8155,7 +8137,7 @@ packages:
     dev: false
 
   file:projects/substrate-ingest.tgz:
-    resolution: {integrity: sha512-tSZE0SCsfHtwA445zKQK5gh1gg355hIee5oBj6omLCmeTifSRqPwcbZycCnRt23baOCpLiHo3xNSSswP8thUAQ==, tarball: file:projects/substrate-ingest.tgz}
+    resolution: {integrity: sha512-3HYe2YgmD8RP6ebjSu9UoV0NczNLZIpog/NoS1oMA03ypdSCoMCy5C19GnjTkrXLTzEmMbf1N2lJGaepqh8PXg==, tarball: file:projects/substrate-ingest.tgz}
     name: '@rush-temp/substrate-ingest'
     version: 0.0.0
     dependencies:
@@ -8166,7 +8148,7 @@ packages:
     dev: false
 
   file:projects/substrate-metadata-explorer.tgz:
-    resolution: {integrity: sha512-V+hQWffC+7hDSV3EGIpGIOLpx/gYadxg1g2OBPkPmxBNuC1jY4izVJYAaeyHHWSJdmAB7lPkS8fk+yl7KqiIHw==, tarball: file:projects/substrate-metadata-explorer.tgz}
+    resolution: {integrity: sha512-a1ARnL9zrwcn8qrO4XsE1JtA8/eFu/Rb9zPM07au9Ez5Ciung7/nPWL7BXoWAEq0LJKosq8AX5eI8hoUYuwmUg==, tarball: file:projects/substrate-metadata-explorer.tgz}
     name: '@rush-temp/substrate-metadata-explorer'
     version: 0.0.0
     dependencies:
@@ -8190,7 +8172,7 @@ packages:
     dev: false
 
   file:projects/substrate-processor.tgz:
-    resolution: {integrity: sha512-vv+Gs/v5MwAvIZmRuSsLvu1tcKP62dH/5Wirxw5Dk5qPvEhuTFTLn6hathtLtkx8mb6cFTCWvi1nz94XPcqc3A==, tarball: file:projects/substrate-processor.tgz}
+    resolution: {integrity: sha512-XROAhQbA9NhRIRSeIpVaw6RuFkT9A/Wlx6hDpW4Us8FZeOopyoBMKNkhsEJccGYZez1xJL1HMM3Dl6OpWmjUKQ==, tarball: file:projects/substrate-processor.tgz}
     name: '@rush-temp/substrate-processor'
     version: 0.0.0
     dependencies:
@@ -8280,7 +8262,7 @@ packages:
     dev: false
 
   file:projects/tron-usdt.tgz(supports-color@8.1.1)(ts-node@10.9.2):
-    resolution: {integrity: sha512-OlqHkQzFwfxSJCFbiII9D1UjmygNK4t4y00zFUfgQXE7pOhlNCW1+94cEXCVghXrmLZrEskcEihdMCLiDetlsg==, tarball: file:projects/tron-usdt.tgz}
+    resolution: {integrity: sha512-77C5Lts1TFaRvtU70bNvO7MvzjTEPdLiTJNIRIMUCkQ9Ow5bA8agsV1VObNAelSID0+KYCQ3S5tcyhJsybUqhQ==, tarball: file:projects/tron-usdt.tgz}
     id: file:projects/tron-usdt.tgz
     name: '@rush-temp/tron-usdt'
     version: 0.0.0
@@ -8294,7 +8276,6 @@ packages:
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
-      - '@subsquid/big-decimal'
       - better-sqlite3
       - hdb-pool
       - ioredis
@@ -8457,7 +8438,7 @@ packages:
     dev: false
 
   file:projects/util-internal-dump-cli.tgz:
-    resolution: {integrity: sha512-KmCXQW0HzE/m3Y1mYq64816CtyR51bd+aM+yIH/ErrtddsGgPZ54tT2sZUN1TCU9IOrTWw4uhEDxTRCLtAPp8w==, tarball: file:projects/util-internal-dump-cli.tgz}
+    resolution: {integrity: sha512-TaiTKYgseouDAE4pZp2aFs4NMeIZbd3GEOjTRMDE96xoNyy8gQFy2e3kE5K5DAI5hxD9wpUDBmxI8qUs6kQKyA==, tarball: file:projects/util-internal-dump-cli.tgz}
     name: '@rush-temp/util-internal-dump-cli'
     version: 0.0.0
     dependencies:
@@ -8502,7 +8483,7 @@ packages:
     dev: false
 
   file:projects/util-internal-ingest-cli.tgz:
-    resolution: {integrity: sha512-wAiT5ljm8y7ODtdaYGEZ7R9YW3VvKNZ8Xd92B+bDnQkRoPRdgYVNpWm1Lmz9IQncR9QH6tv3j9j8dTvGEiCM6g==, tarball: file:projects/util-internal-ingest-cli.tgz}
+    resolution: {integrity: sha512-rfznP3W8tvFAOXY8Oz1rkkMbuQqkUmnLhnVgNTtuRdru/lOHtYkTYNwb9LMHsy6diHUyF+ayu7QIO5sV487dWw==, tarball: file:projects/util-internal-ingest-cli.tgz}
     name: '@rush-temp/util-internal-ingest-cli'
     version: 0.0.0
     dependencies:

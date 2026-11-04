@@ -1,7 +1,7 @@
-import {CallOptions, RpcClient, RpcError, RpcProtocolError} from '@subsquid/rpc-client'
+import {CallOptions, RpcClient, RpcError, RpcProtocolError} from '@morpho-dev/subsquid-rpc-client'
 import {BlockWithTxHashes, Block} from '@subsquid/starknet-data'
 import {Simplify, wait} from '@subsquid/util-internal'
-import {RpcCall, RpcErrorInfo} from '@subsquid/rpc-client/lib/interfaces'
+import {RpcCall, RpcErrorInfo} from '@morpho-dev/subsquid-rpc-client/lib/interfaces'
 import {
     DataValidationError,
     GetSrcType,

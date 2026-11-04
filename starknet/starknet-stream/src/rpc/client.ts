@@ -1,4 +1,4 @@
-import {RpcClient, RpcClientOptions} from '@subsquid/rpc-client'
+import {RpcClient, RpcClientOptions} from '@morpho-dev/subsquid-rpc-client'
 
 export interface StarknetRpcClientOptions extends RpcClientOptions {
     /**

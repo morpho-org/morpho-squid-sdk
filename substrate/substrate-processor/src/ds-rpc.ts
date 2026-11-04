@@ -1,4 +1,4 @@
-import type {RpcClient} from '@subsquid/rpc-client'
+import type {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 import * as base from '@subsquid/substrate-data'
 import {OldSpecsBundle, OldTypesBundle} from '@subsquid/substrate-runtime'
 import {annotateSyncError} from '@subsquid/util-internal'
