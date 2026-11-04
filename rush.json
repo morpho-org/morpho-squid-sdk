@@ -420,7 +420,7 @@
     //   // "versionPolicyName": ""
     // },
     {
-      "packageName": "@subsquid/evm-processor",
+      "packageName": "@morpho-dev/subsquid-evm-processor",
       "projectFolder": "evm/evm-processor",
       "shouldPublish": true,
       "versionPolicyName": "npm"
@@ -712,7 +712,7 @@
       "versionPolicyName": "npm"
     },
     {
-      "packageName": "@subsquid/typeorm-store",
+      "packageName": "@morpho-dev/subsquid-typeorm-store",
       "projectFolder": "typeorm/typeorm-store",
       "shouldPublish": true,
       "versionPolicyName": "npm"
@@ -753,7 +753,7 @@
       "shouldPublish": false
     },
     {
-      "packageName": "@subsquid/rpc-client",
+      "packageName": "@morpho-dev/subsquid-rpc-client",
       "projectFolder": "util/rpc-client",
       "shouldPublish": true,
       "versionPolicyName": "npm"
