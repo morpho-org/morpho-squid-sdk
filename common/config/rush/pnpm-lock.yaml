@@ -7,7 +7,8 @@ settings:
 overrides:
   '@babel/runtime@^7': 7.26.10
   '@protobufjs/utf8@^1': 1.1.1
-  ajv@^8: 8.18.0
+  '@sinclair/typebox@0.27.8': 0.27.10
+  ajv@^8: 8.20.0
   axios@^1: 1.20.0
   base-x@^3: 3.0.11
   base-x@^4: 4.0.1
@@ -16,6 +17,7 @@ overrides:
   brace-expansion@^1: 1.1.21
   brace-expansion@^2: 2.1.7
   braces@^3: 3.0.3
+  cookie@<0.7.0: 0.7.0
   cross-spawn@^7: 7.0.5
   diff@^4: 4.0.4
   diff@^5: 5.2.2
@@ -23,7 +25,7 @@ overrides:
   es5-ext@~0.10: 0.10.63
   express@^4: 4.20.0
   fast-xml-parser@^4: 4.5.5
-  follow-redirects@^1: 1.16.0
+  follow-redirects@^1: 1.16.2
   form-data@^4: 4.0.6
   glob@^10: 10.5.0
   js-yaml@^4: 4.3.2
@@ -33,6 +35,8 @@ overrides:
   minimatch@^9: 9.0.7
   nanoid@^3: 3.3.18
   path-to-regexp@~0.1: 0.1.13
+  pg: 8.21.0
+  pg-connection-string: 2.13.0
   picomatch@^2: 2.3.2
   postcss@^8: 8.5.23
   proxy-addr@^2: 2.0.8
@@ -43,11 +47,11 @@ overrides:
   sha.js@^2: 2.4.12
   source-map-js@^1: 1.2.2
   typeorm@~0.3: 0.3.31
-  validator@^13: 13.15.22
+  validator@^13: 13.15.26
   vite@^5: 5.4.21
   vitest@^1: 1.6.1
-  ws@^7: 7.5.11
-  ws@^8: 8.21.0
+  ws@^7: 7.5.12
+  ws@^8: 8.21.1
 
 dependencies:
   '@apollo/utils.keyvadapter':
@@ -298,10 +302,10 @@ dependencies:
     version: file:projects/typeorm-codegen.tgz
   '@rush-temp/typeorm-config':
     specifier: file:./projects/typeorm-config.tgz
-    version: file:projects/typeorm-config.tgz(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+    version: file:projects/typeorm-config.tgz(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
   '@rush-temp/typeorm-migration':
     specifier: file:./projects/typeorm-migration.tgz
-    version: file:projects/typeorm-migration.tgz(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+    version: file:projects/typeorm-migration.tgz(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
   '@rush-temp/types-test':
     specifier: file:./projects/types-test.tgz
     version: file:projects/types-test.tgz
@@ -450,8 +454,8 @@ dependencies:
     specifier: ^1.0.4
     version: 1.0.6(typescript@5.5.4)
   ajv:
-    specifier: 8.18.0
-    version: 8.18.0
+    specifier: 8.20.0
+    version: 8.20.0
   apollo-server-plugin-response-cache:
     specifier: ~3.7.1
     version: 3.7.1(graphql@15.8.0)
@@ -522,8 +526,8 @@ dependencies:
     specifier: ^3.3.2
     version: 3.3.2
   pg:
-    specifier: ^8.11.3
-    version: 8.11.3
+    specifier: 8.21.0
+    version: 8.21.0
   prom-client:
     specifier: ^14.2.0
     version: 14.2.0
@@ -544,7 +548,7 @@ dependencies:
     version: 2.19.0
   typeorm:
     specifier: 0.3.31
-    version: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+    version: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
   upath:
     specifier: ^2.0.1
     version: 2.0.1
@@ -558,8 +562,8 @@ dependencies:
     specifier: ^1.0.34
     version: 1.0.34
   ws:
-    specifier: 8.21.0
-    version: 8.21.0(bufferutil@4.0.7)(utf-8-validate@5.0.10)
+    specifier: 8.21.1
+    version: 8.21.1(bufferutil@4.0.7)(utf-8-validate@5.0.10)
   xxhash-wasm:
     specifier: ^1.0.2
     version: 1.0.2
@@ -1776,7 +1780,7 @@ packages:
     resolution: {integrity: sha512-mo5j5X+jIZmJQveBKeS/clAueipV7KgiX1vMgCxam1RNYiqE1w62n0/tJJnHtjW8ZHcQco5gY85jA3mi0L+nSA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      '@sinclair/typebox': 0.27.8
+      '@sinclair/typebox': 0.27.10
     dev: false
 
   /@jest/types@29.6.3:
@@ -2123,8 +2127,8 @@ packages:
       '@scure/base': 1.1.9
     dev: false
 
-  /@sinclair/typebox@0.27.8:
-    resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
+  /@sinclair/typebox@0.27.10:
+    resolution: {integrity: sha512-MTBk/3jGLNB2tVxv6uLlFh1iu64iYOQ2PbdOSK3NW8JZsmlaOh2q6sdtKowBhfw8QFLmYNzTW4/oK4uATIi6ZA==}
     dev: false
 
   /@sindresorhus/is@0.14.0:
@@ -3477,8 +3481,8 @@ packages:
       humanize-ms: 1.2.1
     dev: false
 
-  /ajv@8.18.0:
-    resolution: {integrity: sha512-PlXPeEWMXMZ7sPYOHqmDyCJzcfNrUr3fGNKtezX14ykXOEIvyK81d+qydx89KY5O71FKMPaQ2vBfBFI5NHR63A==}
+  /ajv@8.20.0:
+    resolution: {integrity: sha512-Thbli+OlOj+iMPYFBVBfJ3OmCAnaSyNn4M1vz9T6Gka5Jt9ba/HIR56joy65tY6kx/FCF5VXNB819Y7/GUrBGA==}
     dependencies:
       fast-deep-equal: 3.1.3
       fast-uri: 3.1.9
@@ -3735,7 +3739,7 @@ packages:
   /axios@1.20.0(supports-color@8.1.1):
     resolution: {integrity: sha512-r8aOh8j9cGKpgQAqpzrUHnSIc6a59Y3Xf/cv8sy1DrHCkZHzQGEuoq1tARk6qSyDdtQGSDgpb9kFlruzPvrgwg==}
     dependencies:
-      follow-redirects: 1.16.0
+      follow-redirects: 1.16.2
       form-data: 4.0.6
       https-proxy-agent: 5.0.1(supports-color@8.1.1)
       proxy-from-env: 2.1.0
@@ -4089,7 +4093,7 @@ packages:
     dependencies:
       '@types/validator': 13.15.1
       libphonenumber-js: 1.12.8
-      validator: 13.15.22
+      validator: 13.15.26
     dev: false
 
   /cli-highlight@2.1.11:
@@ -4204,8 +4208,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /cookie@0.6.0:
-    resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
+  /cookie@0.7.0:
+    resolution: {integrity: sha512-qCf+V4dtlNhSRXGAZatc1TasyFO6GjohcOul807YOb5ik3+kQSnb4d7iajeCL8QHaJ4uZEjCgiCJerKXwdRVlQ==}
     engines: {node: '>= 0.6'}
     dev: false
 
@@ -4698,7 +4702,7 @@ packages:
       '@types/node': 18.15.13
       aes-js: 4.0.0-beta.5
       tslib: 2.4.0
-      ws: 8.21.0(bufferutil@4.0.7)(utf-8-validate@5.0.10)
+      ws: 8.21.1(bufferutil@4.0.7)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -4793,7 +4797,7 @@ packages:
       body-parser: 1.20.9
       content-disposition: 0.5.4
       content-type: 1.0.5
-      cookie: 0.6.0
+      cookie: 0.7.0
       cookie-signature: 1.0.6
       debug: 2.6.9
       depd: 2.0.0
@@ -4907,8 +4911,8 @@ packages:
     hasBin: true
     dev: false
 
-  /follow-redirects@1.16.0:
-    resolution: {integrity: sha512-y5rN/uOsadFT/JfYwhxRS5R7Qce+g3zG97+JrtFZlC9klX/W5hD7iiLzScI4nZqUS7DNUdhPgw4xI8W2LuXlUw==}
+  /follow-redirects@1.16.2:
+    resolution: {integrity: sha512-/kVP2U8z596Ia0gwFrwyIeo74ta5aVmSeU1FfAUMAmcEP5EP7zydmag3SLiN64NaRKef3lxsq7i/g7ltJQDGow==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -5550,20 +5554,20 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: false
 
-  /isomorphic-ws@4.0.1(ws@7.5.11):
+  /isomorphic-ws@4.0.1(ws@7.5.12):
     resolution: {integrity: sha512-BhBvN2MBpWTaSHdWRb/bwdZJ1WaehQ2L1KngkCkfLUGF0mAWAT1sQUQacEmQ0jXkFw/czDXPNQSL5u2/Krsz1w==}
     peerDependencies:
-      ws: 7.5.11
+      ws: 7.5.12
     dependencies:
-      ws: 7.5.11
+      ws: 7.5.12
     dev: false
 
-  /isows@1.0.4(ws@8.21.0):
+  /isows@1.0.4(ws@8.21.1):
     resolution: {integrity: sha512-hEzjY+x9u9hPmBom9IIAqdJCwNLax+xrPb51vEPpERoFlIxgmZcHzsT5jKG06nvInKOBGvReAVz80Umed5CczQ==}
     peerDependencies:
-      ws: 7.5.11
+      ws: 7.5.12
     dependencies:
-      ws: 8.21.0(bufferutil@4.0.7)(utf-8-validate@5.0.10)
+      ws: 8.21.1(bufferutil@4.0.7)(utf-8-validate@5.0.10)
     dev: false
 
   /iterall@1.3.0:
@@ -5591,10 +5595,10 @@ packages:
       delay: 5.0.0
       es6-promisify: 5.0.0
       eyes: 0.1.8
-      isomorphic-ws: 4.0.1(ws@7.5.11)
+      isomorphic-ws: 4.0.1(ws@7.5.12)
       json-stringify-safe: 5.0.1
       uuid: 8.3.2
-      ws: 7.5.11
+      ws: 7.5.12
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -6243,6 +6247,16 @@ packages:
     dev: false
     optional: true
 
+  /pg-cloudflare@1.4.1:
+    resolution: {integrity: sha512-6PQbsFWZcp9EmJEwy5cGQ2La+AMWpP46lgbb8X+U/XsHIUweYDNCpeuKck5RxL2MdVFi7krbbEi5nX4Zh7JhrQ==}
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /pg-connection-string@2.13.0:
+    resolution: {integrity: sha512-EMnU9E2fSULdsbErBbMaXJvFeD9B4+nPcM3f+4lsiCR0BHLPrLVjv3DbyM2hgQQviKJaTWIRRTjKjWlHg3p2ig==}
+    dev: false
+
   /pg-connection-string@2.6.2:
     resolution: {integrity: sha512-ch6OwaeaPYcova4kKZ15sbJ2hKb/VP48ZD2gE7i1J+L4MspCtBMAx8nMgz7bksc7IojCIIWuEhHibSMFH8m8oA==}
     dev: false
@@ -6257,12 +6271,24 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
+  /pg-pool@3.14.0(pg@8.21.0):
+    resolution: {integrity: sha512-gKtPkFdQPU3DksooVLi9LsjZxrsBUZIpa+7aVx+LV5pNh0KzP4Zleud2po+ConrxbuXGBJ6Hfer6hdgpIBpBaw==}
+    peerDependencies:
+      pg: 8.21.0
+    dependencies:
+      pg: 8.21.0
+    dev: false
+
   /pg-pool@3.6.1(pg@8.11.3):
     resolution: {integrity: sha512-jizsIzhkIitxCGfPRzJn1ZdcosIt3pz9Sh3V01fm1vZnbnCMgmGl5wvGGdNN2EL9Rmb0EcFoCkixH4Pu+sP9Og==}
     peerDependencies:
       pg: '>=8.0'
     dependencies:
       pg: 8.11.3
+    dev: false
+
+  /pg-protocol@1.16.1:
+    resolution: {integrity: sha512-p9VOFMiHB/ZbJATetbg+99PxssTVSQRnyuPSQ67mN1+1KBOjZaZ83ZQzltnxPhJwSsC3nwVjJ10DVJlerbFzLg==}
     dev: false
 
   /pg-protocol@1.6.0:
@@ -6311,6 +6337,24 @@ packages:
       pgpass: 1.0.5
     optionalDependencies:
       pg-cloudflare: 1.1.1
+    dev: false
+
+  /pg@8.21.0:
+    resolution: {integrity: sha512-AUP1EYJuHraQGsVoCQVIcM7TEJVGtDzxWtGFZd8rds9d+CCXlU5Js1rYgfLNvxy9iJrpHjGrRjoi/3BT9fRyiA==}
+    engines: {node: '>= 16.0.0'}
+    peerDependencies:
+      pg-native: '>=3.0.1'
+    peerDependenciesMeta:
+      pg-native:
+        optional: true
+    dependencies:
+      pg-connection-string: 2.13.0
+      pg-pool: 3.14.0(pg@8.21.0)
+      pg-protocol: 1.16.1
+      pg-types: 2.2.0
+      pgpass: 1.0.5
+    optionalDependencies:
+      pg-cloudflare: 1.4.1
     dev: false
 
   /pgpass@1.0.5:
@@ -6649,7 +6693,7 @@ packages:
       buffer: 6.0.3
       eventemitter3: 5.0.1
       uuid: 8.3.2
-      ws: 8.21.0(bufferutil@4.0.7)(utf-8-validate@5.0.10)
+      ws: 8.21.1(bufferutil@4.0.7)(utf-8-validate@5.0.10)
     optionalDependencies:
       bufferutil: 4.0.7
       utf-8-validate: 5.0.10
@@ -7300,7 +7344,7 @@ packages:
       - supports-color
     dev: false
 
-  /typeorm@0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2):
+  /typeorm@0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2):
     resolution: {integrity: sha512-6u9EFtdLBgHjnPm78NStVeM+I/1MolTzKykDDcydzKUkh6E++YS6XViU/fePJbvDvEGU4Xq34KOM/CLeer9I2A==}
     engines: {node: '>=16.13.0'}
     hasBin: true
@@ -7313,7 +7357,7 @@ packages:
       mssql: ^9.1.1 || ^10.0.0 || ^11.0.0 || ^12.0.0
       mysql2: ^2.2.5 || ^3.0.1
       oracledb: ^6.3.0 || ^7.0.0
-      pg: ^8.5.1
+      pg: 8.21.0
       pg-native: ^3.0.0
       pg-query-stream: ^4.0.0
       redis: ^3.1.1 || ^4.0.0 || ^5.0.14
@@ -7364,7 +7408,7 @@ packages:
       dedent: 1.7.2
       dotenv: 16.6.1
       glob: 10.5.0
-      pg: 8.11.3
+      pg: 8.21.0
       reflect-metadata: 0.2.2
       sha.js: 2.4.12
       sql-highlight: 6.1.0
@@ -7444,8 +7488,8 @@ packages:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
     dev: false
 
-  /validator@13.15.22:
-    resolution: {integrity: sha512-uT/YQjiyLJP7HSrv/dPZqK9L28xf8hsNca01HSz1dfmI0DgMfjopp1rO/z13NeGF1tVystF0Ejx3y4rUKPw+bQ==}
+  /validator@13.15.26:
+    resolution: {integrity: sha512-spH26xU080ydGggxRyR1Yhcbgx+j3y5jbNXk/8L+iRvdIEQ4uTRH2Sgf2dokud6Q4oAtsbNvJ1Ft+9xmm6IZcA==}
     engines: {node: '>= 0.10'}
     dev: false
 
@@ -7478,10 +7522,10 @@ packages:
       '@scure/bip32': 1.4.0
       '@scure/bip39': 1.4.0
       abitype: 1.0.5(typescript@5.5.4)
-      isows: 1.0.4(ws@8.21.0)
+      isows: 1.0.4(ws@8.21.1)
       typescript: 5.5.4
       webauthn-p256: 0.0.5
-      ws: 8.21.0(bufferutil@4.0.7)(utf-8-validate@5.0.10)
+      ws: 8.21.1(bufferutil@4.0.7)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -7732,8 +7776,8 @@ packages:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
     dev: false
 
-  /ws@7.5.11:
-    resolution: {integrity: sha512-zS54Oen9bITtp7kp2XM3AydrCIq1D+HwJOuH+c+e4LfpL/lotP5osijd+UoMnxwAam1GN8R4KtLAyIrIcBNpiA==}
+  /ws@7.5.12:
+    resolution: {integrity: sha512-1xGnbYN3zbog9CwuNDQULNRrTCLIn46/WmpR1f0w6PsCYQHkylZr5vkd6kfMZYV6pRnQkcPNRyiA8LsrNKyhpg==}
     engines: {node: '>=8.3.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -7745,8 +7789,8 @@ packages:
         optional: true
     dev: false
 
-  /ws@8.21.0(bufferutil@4.0.7)(utf-8-validate@5.0.10):
-    resolution: {integrity: sha512-Vsp28b7DRcimFQvrqu2Wek3z1iYxDCWqHYB8Qsnk/S4RfaCQzPGPyBNuVjJV3cd6UiKtUtp6sNM77gWvzcCH+g==}
+  /ws@8.21.1(bufferutil@4.0.7)(utf-8-validate@5.0.10):
+    resolution: {integrity: sha512-+0NTnW77fFN/DjQi6k/Sq/Yvk4Sgajw7urW8V+asjXnRgDs9gyGkdb7EzgfhA4goXsRIZKE28fzIXBHEzhuiWw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -7883,8 +7927,8 @@ packages:
       '@types/node': 18.19.0
       dotenv: 16.3.1
       ethers: 6.9.0
-      pg: 8.11.3
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      pg: 8.21.0
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -7917,9 +7961,9 @@ packages:
       '@subsquid/typeorm-store': 1.9.2(typeorm@0.3.17)
       '@types/node': 18.19.0
       dotenv: 16.3.1
-      pg: 8.11.3
+      pg: 8.21.0
       ts-node: 10.9.2(@types/node@18.19.0)(typescript@5.5.4)
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -8008,7 +8052,7 @@ packages:
       '@types/node': 18.19.0
       '@types/pg': 8.10.9
       expect: 29.7.0
-      pg: 8.11.3
+      pg: 8.21.0
       typescript: 5.5.4
     transitivePeerDependencies:
       - pg-native
@@ -8025,8 +8069,8 @@ packages:
       '@types/node': 18.19.0
       dotenv: 16.3.1
       ethers: 6.9.0
-      pg: 8.11.3
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      pg: 8.21.0
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -8169,8 +8213,8 @@ packages:
       '@subsquid/typeorm-store': 1.9.2(typeorm@0.3.17)
       '@types/node': 18.19.0
       dotenv: 16.3.1
-      pg: 8.11.3
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      pg: 8.21.0
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -8239,7 +8283,7 @@ packages:
       expect: 29.7.0
       graphql-ws: 5.14.2(graphql@15.8.0)
       typescript: 5.5.4
-      ws: 8.21.0(bufferutil@4.0.7)(utf-8-validate@5.0.10)
+      ws: 8.21.1(bufferutil@4.0.7)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
       - graphql
@@ -8277,11 +8321,11 @@ packages:
       graphql-ws: 5.14.2(graphql@15.8.0)
       keyv: 4.5.4
       mocha: 10.7.3
-      pg: 8.11.3
+      pg: 8.21.0
       type-graphql: 1.2.0-rc.1(class-validator@0.14.2)(graphql@15.8.0)
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
-      ws: 8.21.0(bufferutil@4.0.7)(utf-8-validate@5.0.10)
+      ws: 8.21.1(bufferutil@4.0.7)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
@@ -8322,7 +8366,7 @@ packages:
     dependencies:
       '@types/mocha': 10.0.8
       '@types/node': 18.19.0
-      ajv: 8.18.0
+      ajv: 8.20.0
       expect: 29.7.0
       mocha: 10.7.3
       typescript: 5.5.4
@@ -8381,9 +8425,9 @@ packages:
       graphql-ws: 5.14.2(graphql@15.8.0)
       inflected: 2.1.0
       mocha: 10.7.3
-      pg: 8.11.3
+      pg: 8.21.0
       typescript: 5.5.4
-      ws: 8.21.0(bufferutil@4.0.7)(utf-8-validate@5.0.10)
+      ws: 8.21.1(bufferutil@4.0.7)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -8410,8 +8454,8 @@ packages:
       '@subsquid/typeorm-store': 1.9.2(typeorm@0.3.17)
       '@types/node': 18.19.0
       dotenv: 16.3.1
-      pg: 8.11.3
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      pg: 8.21.0
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -8479,8 +8523,8 @@ packages:
       '@subsquid/typeorm-store': 1.9.2(typeorm@0.3.17)
       '@types/node': 18.19.0
       dotenv: 16.3.1
-      pg: 8.11.3
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      pg: 8.21.0
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -8511,8 +8555,8 @@ packages:
       '@subsquid/typeorm-store': 1.9.2(typeorm@0.3.17)
       '@types/node': 18.19.0
       dotenv: 16.3.1
-      pg: 8.11.3
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      pg: 8.21.0
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -8553,8 +8597,8 @@ packages:
       '@subsquid/typeorm-store': 1.9.2(typeorm@0.3.17)
       '@types/node': 18.19.0
       dotenv: 16.3.1
-      pg: 8.11.3
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      pg: 8.21.0
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -8702,8 +8746,8 @@ packages:
       '@subsquid/typeorm-store': 1.9.2(typeorm@0.3.17)
       '@types/node': 18.19.0
       dotenv: 16.3.1
-      pg: 8.11.3
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      pg: 8.21.0
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -8798,8 +8842,8 @@ packages:
       '@types/pg': 8.10.9
       expect: 29.7.0
       mocha: 10.7.3
-      pg: 8.11.3
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      pg: 8.21.0
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -8988,8 +9032,8 @@ packages:
       '@subsquid/typeorm-store': 1.9.2(typeorm@0.3.17)
       '@types/node': 18.19.0
       dotenv: 16.3.1
-      pg: 8.11.3
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      pg: 8.21.0
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -9021,14 +9065,14 @@ packages:
       typescript: 5.5.4
     dev: false
 
-  file:projects/typeorm-config.tgz(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2):
+  file:projects/typeorm-config.tgz(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2):
     resolution: {integrity: sha512-eNwfLU3oTSsMVLtpDYgzNav/FJmtltQF0yCunLhRu1U/7vSncPKuXEd5kz1abbP7KWH21Gtp4lgqoAwH/7Ww9A==, tarball: file:projects/typeorm-config.tgz}
     id: file:projects/typeorm-config.tgz
     name: '@rush-temp/typeorm-config'
     version: 0.0.0
     dependencies:
       '@types/node': 18.19.0
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -9051,7 +9095,7 @@ packages:
       - typeorm-aurora-data-api-driver
     dev: false
 
-  file:projects/typeorm-migration.tgz(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2):
+  file:projects/typeorm-migration.tgz(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2):
     resolution: {integrity: sha512-CqLEoUCe9/gv6hzW5dMAQbQRFDv6N2cs9af1tltLALy11rCpFQHnBugi7xTs8kcdeSJdJWilyncYFYpnJoQECA==, tarball: file:projects/typeorm-migration.tgz}
     id: file:projects/typeorm-migration.tgz
     name: '@rush-temp/typeorm-migration'
@@ -9060,7 +9104,7 @@ packages:
       '@types/node': 18.19.0
       commander: 11.1.0
       dotenv: 16.3.1
-      typeorm: 0.3.31(pg@8.11.3)(supports-color@8.1.1)(ts-node@10.9.2)
+      typeorm: 0.3.31(pg@8.21.0)(supports-color@8.1.1)(ts-node@10.9.2)
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
