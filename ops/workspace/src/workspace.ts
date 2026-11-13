@@ -1,10 +1,10 @@
 import {assertNotNull, def} from '@subsquid/util-internal'
 import fs from 'fs'
 import * as JSONC from 'jsonc-parser'
-import latestVersion from 'latest-version'
 import * as path from 'path'
 import * as semver from 'semver'
 import {PackageJson} from 'type-fest'
+import {latestVersion} from './latest-version'
 
 
 type PkgJson = PackageJson.PackageJsonStandard
