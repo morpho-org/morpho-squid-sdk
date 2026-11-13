@@ -4,13 +4,13 @@
   "private": true,
   "main": "lib/main.js",
   "scripts": {
-    "build": "rm -rf lib && tsc"
+    "build": "rm -rf lib && tsc",
+    "test": "node --test lib/latest-version.test.js"
   },
   "dependencies": {
     "@subsquid/util-internal": "^3.2.0",
     "commander": "^11.1.0",
     "jsonc-parser": "^3.2.0",
-    "latest-version": "^5.1.0",
     "semver": "^7.5.4"
   },
   "devDependencies": {

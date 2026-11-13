@@ -16,7 +16,7 @@
     "build": "rm -rf lib && tsc"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.462.0",
+    "@aws-sdk/client-s3": "3.723.0",
     "upath": "^2.0.1"
   },
   "devDependencies": {
