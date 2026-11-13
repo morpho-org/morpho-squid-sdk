@@ -362,12 +362,6 @@
       "versionPolicyName": "npm"
     },
     {
-      "packageName": "@subsquid/graphql-server",
-      "projectFolder": "graphql/graphql-server",
-      "shouldPublish": true,
-      "versionPolicyName": "npm"
-    },
-    {
       "packageName": "@subsquid/ink-abi",
       "projectFolder": "substrate/ink-abi",
       "shouldPublish": true,
@@ -376,12 +370,6 @@
     {
       "packageName": "@subsquid/ink-typegen",
       "projectFolder": "substrate/ink-typegen",
-      "shouldPublish": true,
-      "versionPolicyName": "npm"
-    },
-    {
-      "packageName": "@subsquid/openreader",
-      "projectFolder": "graphql/openreader",
       "shouldPublish": true,
       "versionPolicyName": "npm"
     },
@@ -612,12 +600,6 @@
       "versionPolicyName": "npm"
     },
     {
-      "packageName": "@subsquid/typeorm-codegen",
-      "projectFolder": "typeorm/typeorm-codegen",
-      "shouldPublish": true,
-      "versionPolicyName": "npm"
-    },
-    {
       "packageName": "@subsquid/typeorm-config",
       "projectFolder": "typeorm/typeorm-config",
       "shouldPublish": true,
@@ -833,11 +815,6 @@
       "versionPolicyName": "npm"
     },
     {
-      "packageName": "balances",
-      "projectFolder": "test/balances",
-      "shouldPublish": false
-    },
-    {
       "packageName": "borsh-bench",
       "projectFolder": "test/borsh-bench",
       "shouldPublish": false
@@ -845,11 +822,6 @@
     {
       "packageName": "data-test",
       "projectFolder": "test/data",
-      "shouldPublish": false
-    },
-    {
-      "packageName": "erc20-transfers",
-      "projectFolder": "test/erc20-transfers",
       "shouldPublish": false
     },
     {
@@ -863,23 +835,8 @@
       "shouldPublish": false
     },
     {
-      "packageName": "shibuya-erc20",
-      "projectFolder": "test/shibuya-erc20",
-      "shouldPublish": false
-    },
-    {
-      "packageName": "shibuya-psp22",
-      "projectFolder": "test/shibuya-psp22",
-      "shouldPublish": false
-    },
-    {
       "packageName": "solana-example",
       "projectFolder": "test/solana-example",
-      "shouldPublish": false
-    },
-    {
-      "packageName": "fuel-indexer",
-      "projectFolder": "test/fuel-indexer",
       "shouldPublish": false
     },
 //    {
@@ -892,21 +849,6 @@
 //      "projectFolder": "test/gear-nft",
 //      "shouldPublish": false
 //    },
-    {
-      "packageName": "astar-erc20",
-      "projectFolder": "test/astar-erc20",
-      "shouldPublish": false
-    },
-    {
-      "packageName": "tron-usdt",
-      "projectFolder": "test/tron-usdt",
-      "shouldPublish": false
-    },
-    {
-      "packageName": "polkavm-erc20",
-      "projectFolder": "test/polkavm-erc20",
-      "shouldPublish": false
-    },
     {
       "packageName": "@subsquid/starknet-data",
       "projectFolder": "starknet/starknet-data",
@@ -936,11 +878,6 @@
       "projectFolder": "starknet/starknet-rpc",
       "shouldPublish": true,
       "versionPolicyName": "npm"
-    },
-    {
-      "packageName": "starknet-indexer",
-      "projectFolder": "test/starknet-indexer",
-      "shouldPublish": false
     }
   ]
 }
