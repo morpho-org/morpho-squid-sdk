@@ -1,4 +1,4 @@
-import {RpcCall} from '@subsquid/rpc-client/lib/interfaces'
+import {RpcCall} from '@morpho-dev/subsquid-rpc-client/lib/interfaces'
 import {last} from '@subsquid/util-internal'
 import {
     assertIsValid,

@@ -1,5 +1,5 @@
 import {Logger} from '@subsquid/logger'
-import {RpcClient} from '@subsquid/rpc-client'
+import {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 import {findSpecVersions} from './binarySearch'
 import {ExploreApi} from './explore'
 import {SpecVersion, SpecVersionRecord} from './specVersion'

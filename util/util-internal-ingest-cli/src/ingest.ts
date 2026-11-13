@@ -1,5 +1,5 @@
 import {createLogger, Logger} from '@subsquid/logger'
-import {RpcClient} from '@subsquid/rpc-client'
+import {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 import {assertNotNull, def, runProgram, waitDrain} from '@subsquid/util-internal'
 import {ArchiveLayout} from '@subsquid/util-internal-archive-layout'
 import {FileOrUrl, nat, positiveInt, Url} from '@subsquid/util-internal-commander'

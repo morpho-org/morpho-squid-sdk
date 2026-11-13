@@ -1,6 +1,6 @@
 import {HttpAgent, HttpClient} from '@subsquid/http-client'
 import {createLogger, Logger} from '@subsquid/logger'
-import {RpcClient} from '@subsquid/rpc-client'
+import {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 import {
     getOldTypesBundle,
     OldSpecsBundle,

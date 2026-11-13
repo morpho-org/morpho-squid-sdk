@@ -1,12 +1,12 @@
-import {BigIntColumn, DateTimeColumn, Entity, IntColumn, PrimaryColumn, StringColumn} from '@subsquid/typeorm-store'
+import {BigIntColumn, DateTimeColumn, Entity, IntColumn, PrimaryColumn, StringColumn} from '@morpho-dev/subsquid-typeorm-store'
 
 // Here we define `exchange` database table as TypeORM entity class.
 //
-// We do that with the help of decorators from `@subsquid/typeorm-store` package.
+// We do that with the help of decorators from `@morpho-dev/subsquid-typeorm-store` package.
 //
 // Those decorators are convenience and restrictive wrappers around decorators from `typeorm`.
 //
-// All restrictions are related to the fact, that `@subsquid/typeorm-store`
+// All restrictions are related to the fact, that `@morpho-dev/subsquid-typeorm-store`
 // supports only primitive DML operations (insert, upsert, update and delete)
 // without cascading.
 @Entity()

@@ -1,4 +1,4 @@
-import type {RpcClient} from '@subsquid/rpc-client'
+import type {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 
 
 export class Chain {

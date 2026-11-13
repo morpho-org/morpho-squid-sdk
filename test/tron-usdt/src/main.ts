@@ -1,5 +1,5 @@
 import {TronBatchProcessor} from '@subsquid/tron-processor'
-import {TypeormDatabase} from '@subsquid/typeorm-store'
+import {TypeormDatabase} from '@morpho-dev/subsquid-typeorm-store'
 import assert from 'assert'
 import * as erc20 from './abi/erc20'
 import {Transfer} from './model'

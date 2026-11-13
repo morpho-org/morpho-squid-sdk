@@ -1,4 +1,4 @@
-import {RpcClient, SubscriptionHandle} from '@subsquid/rpc-client'
+import {RpcClient, SubscriptionHandle} from '@morpho-dev/subsquid-rpc-client'
 import {Block, GetBlock} from '@subsquid/solana-rpc-data'
 import {addErrorContext, assertNotNull, AsyncQueue, ensureError, last, maybeLast} from '@subsquid/util-internal'
 import {ANY_OBJECT, assertValidity, NAT, nullable, object} from '@subsquid/util-internal-validation'

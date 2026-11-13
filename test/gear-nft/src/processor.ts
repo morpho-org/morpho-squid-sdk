@@ -1,5 +1,5 @@
 import {SubstrateBatchProcessor, BatchProcessorItem, DataHandlerContext, assertNotNull} from '@subsquid/substrate-processor'
-import {Store, TypeormDatabase} from '@subsquid/typeorm-store'
+import {Store, TypeormDatabase} from '@morpho-dev/subsquid-typeorm-store'
 import { In } from 'typeorm'
 import {Account, TokenMint} from './model'
 import {decodeNFTInput} from './program'

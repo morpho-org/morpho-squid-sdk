@@ -1,5 +1,5 @@
 import {Logger} from '@subsquid/logger'
-import {RpcClient} from '@subsquid/rpc-client'
+import {RpcClient} from '@morpho-dev/subsquid-rpc-client'
 import {createPrometheusServer, ListeningServer} from '@subsquid/util-internal-prometheus-server'
 import {collectDefaultMetrics, Gauge, Counter, Registry} from 'prom-client'
 

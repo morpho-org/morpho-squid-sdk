@@ -1,6 +1,6 @@
 import {getTransaction, getTransactionResult} from '@subsquid/frontier'
 import {assertNotNull, SubstrateBatchProcessor} from '@subsquid/substrate-processor'
-import {TypeormDatabase} from '@subsquid/typeorm-store'
+import {TypeormDatabase} from '@morpho-dev/subsquid-typeorm-store'
 import {toJSON} from '@subsquid/util-internal-json'
 import * as erc20 from './abi/erc20'
 import {Transaction} from './model'

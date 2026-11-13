@@ -549,7 +549,7 @@ class ImportRegistry {
             const importList = Array.from(this.typeorm).map(
                 (name) => name + ' as ' + name + '_'
             )
-            out.line(`import {${importList.join(', ')}} from "@subsquid/typeorm-store"`)
+            out.line(`import {${importList.join(', ')}} from "@morpho-dev/subsquid-typeorm-store"`)
         }
         if (this.marshal) {
             out.line(`import * as marshal from "./marshal"`)
